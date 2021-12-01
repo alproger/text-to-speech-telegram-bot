@@ -13,8 +13,7 @@ Telegram bot for converting text to speech.
 <br>
 <h4 align="center">Source code </h4>
 <hr>
-```
-    from gtts import gTTS 
+``` from gtts import gTTS 
     import telebot
     from uuid import uuid4
     bot = telebot.TeleBot("your bot token")
@@ -39,7 +38,5 @@ Telegram bot for converting text to speech.
     
         bot.send_audio(message.chat.id, audio = audio_file)
 print('bot running...')
-bot.infinity_polling()
-
-```
+bot.infinity_polling() ```
 <hr>
