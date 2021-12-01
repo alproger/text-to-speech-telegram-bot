@@ -14,7 +14,7 @@ def echo_all(message):
     bot.send_message(message.chat.id, text='Audio is saving...')
     text_to_speech = gTTS(text=message.text, lang='en', slow=False)
     text_to_speech.save(f"{audio_name}.mp3")
-    audio_file = open(f'/home/alproger/Documents/text-to-speech/{audio_name}.mp3', 'rb')	
+    audio_file = open(f'/home/alproger/Documents/GitHub/text-to-speech-telegram-bot/{audio_name}.mp3', 'rb')	
 	
     bot.send_audio(message.chat.id, audio = audio_file)
 
