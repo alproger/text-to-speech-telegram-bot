@@ -11,12 +11,14 @@ Telegram bot for converting text to speech.
 * `pip install gTTS`
 
 <br>
-```from gtts import gTTS 
+<h4 align="center">Source code </h4>
+<hr>
+```
+from gtts import gTTS 
 import telebot
 from uuid import uuid4
 bot = telebot.TeleBot("your bot token")
-
- #hendling start or help command
+#hendling start or help command
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
 	answer = 'Hello I can convert text to speech in russian and english languages.\nSend me text'
@@ -32,6 +34,6 @@ def echo_all(message):
 	
     bot.send_audio(message.chat.id, audio = audio_file)
 print('bot running...')
-bot.infinity_polling()```
-
-
+bot.infinity_polling()
+```
+<hr>
