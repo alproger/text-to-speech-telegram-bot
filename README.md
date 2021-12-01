@@ -8,7 +8,8 @@ Telegram bot for converting text to speech.
 * `pip install pyTelegramBotAPI`
 * `pip install gTTS`
 <br>
-`from gtts import gTTS 
+```
+from gtts import gTTS 
 import telebot
 from uuid import uuid4
 bot = telebot.TeleBot("your bot token")
@@ -31,5 +32,5 @@ def echo_all(message):
 
 print('bot running...')
 bot.infinity_polling()
-`
+```
 
