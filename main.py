@@ -1,7 +1,7 @@
 from gtts import gTTS 
 import telebot
 from uuid import uuid4
-bot = telebot.TeleBot("your bot token")
+bot = telebot.TeleBot("2129516170:AAGAjo7Pui79YBCIc-SyWBbMEU14q35qWx4")
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
@@ -13,8 +13,8 @@ def echo_all(message):
     audio_name = uuid4()
     bot.send_message(message.chat.id, text='Audio is saving...')
     text_to_speech = gTTS(text=message.text, lang='en', slow=False)
-    text_to_speech.save(f"{audio_name}.mp3")
-    audio_file = open(f'/home/alproger/Documents/GitHub/text-to-speech-telegram-bot/{audio_name}.mp3', 'rb')	
+    text_to_speech.save(f"{audio_name}.wav")
+    audio_file = open(f'/home/alproger/Documents/GitHub/text-to-speech-telegram-bot/{audio_name}.wav', 'rb')	
 	
     bot.send_audio(message.chat.id, audio = audio_file)
 
