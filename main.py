@@ -1,7 +1,7 @@
 from gtts import gTTS 
 import telebot
 from uuid import uuid4
-bot = telebot.TeleBot("2129516170:AAGAjo7Pui79YBCIc-SyWBbMEU14q35qWx4")
+bot = telebot.TeleBot("")
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
