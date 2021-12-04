@@ -4,10 +4,15 @@ from uuid import uuid4
 from engru import lang_detecter
 import difflib
 
-queestions = {
-                 'question1'  : 'Что такое распознавание речи?',
-                 'question2' : ''
+questions = {
+                 'answer1'  : 'Что такое распознавание речи?',
+                 'answer2'  : 'Какие типовые задачи существует в распознавание речи?',
+                 'answer3'  : 'Какие механизмы существует в распознавание речи?'
 }
+
+def text_eq(text1, text2):
+    result = difflib.SequenceMatcher(None,f'{text1}',f'{text2}').ratio()
+    return result
 
 
 bot = telebot.TeleBot("2129516170:AAGAjo7Pui79YBCIc-SyWBbMEU14q35qWx4")
@@ -20,11 +25,14 @@ def send_welcome(message):
 def echo_all(message):
     message_lang = lang_detecter(message.text[0:50])
    
-    if message.text == queestions['question1']:
-        audio_file = open(f'/home/alproger/Documents/GitHub/text-to-speech-telegram-bot/answer1.wav', 'rb')
-        bot.send_audio(message.chat.id, audio = audio_file)
+    for key in questions.keys():
+        percent = text_eq(questions[key], message.text)
+        if text_eq(questions[key], message.text) > 0.9:
+            audio = open(f'/home/alproger/Documents/GitHub/text-to-speech-telegram-bot/{key}.wav', 'rb')
+            bot.send_audio(message.chat.id, audio = audio)
     
-    else :
+
+    if percent < 0.2: 
         if message_lang == 'ru' or message_lang == 'en':
             audio_name = uuid4()
             bot.send_message(message.chat.id, text='Audio is saving...')

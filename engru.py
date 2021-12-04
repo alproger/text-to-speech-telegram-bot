@@ -6,4 +6,3 @@ def lang_detecter(text):
     language = TextBlob(text)
     return language.detect_language()
 
-print()
