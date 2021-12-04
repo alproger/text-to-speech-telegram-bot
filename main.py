@@ -15,7 +15,7 @@ def text_eq(text1, text2):
     return result
 
 
-bot = telebot.TeleBot("2129516170:AAGAjo7Pui79YBCIc-SyWBbMEU14q35qWx4")
+bot = telebot.TeleBot("bot token here")
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
 	answer = 'Hello I can convert text to speech in russian and english languages.\nSend me text'
@@ -27,12 +27,13 @@ def echo_all(message):
    
     for key in questions.keys():
         percent = text_eq(questions[key], message.text)
-        if text_eq(questions[key], message.text) > 0.9:
+        # print(percent)
+        if text_eq(questions[key], message.text) > 0.83:
             audio = open(f'/home/alproger/Documents/GitHub/text-to-speech-telegram-bot/{key}.wav', 'rb')
             bot.send_audio(message.chat.id, audio = audio)
     
 
-    if percent < 0.2: 
+    if percent < 0.85: 
         if message_lang == 'ru' or message_lang == 'en':
             audio_name = uuid4()
             bot.send_message(message.chat.id, text='Audio is saving...')
