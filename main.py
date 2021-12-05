@@ -7,7 +7,8 @@ import difflib
 questions = {
                  'answer1'  : 'Что такое распознавание речи?',
                  'answer2'  : 'Какие типовые задачи существует в распознавание речи?',
-                 'answer3'  : 'Какие механизмы существует в распознавание речи?'
+                 'answer3'  : 'Какие механизмы существует в распознавание речи?',
+                 'answer4'  : 'Что такое Sonix?'
 }
 
 def text_eq(text1, text2):
@@ -15,7 +16,7 @@ def text_eq(text1, text2):
     return result
 
 
-bot = telebot.TeleBot("bot token here")
+bot = telebot.TeleBot("")
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
 	answer = 'Hello I can convert text to speech in russian and english languages.\nSend me text'
