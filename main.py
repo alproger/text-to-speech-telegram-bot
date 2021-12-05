@@ -16,7 +16,7 @@ def text_eq(text1, text2):
     return result
 
 
-bot = telebot.TeleBot("")
+bot = telebot.TeleBot("bot token here")
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
 	answer = 'Hello I can convert text to speech in russian and english languages.\nSend me text'
