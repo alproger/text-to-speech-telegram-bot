@@ -8,7 +8,15 @@ questions = {
                  'answer1'  : 'Что такое распознавание речи?',
                  'answer2'  : 'Какие типовые задачи существует в распознавание речи?',
                  'answer3'  : 'Какие механизмы существует в распознавание речи?',
-                 'answer4'  : 'Что такое Sonix?'
+                 'answer4'  : 'Что такое Sonix?',
+                 'answer5'  : 'Как работает программа для распознования речи?',
+                 'answer6'  : 'Первая техналогия для распознования речи?',
+                 'answer7'  : 'Что такое акустический модел?',
+                 'answer8'  : 'Что такое IBM Speech to text?',
+                 'answer9'  : 'Что такое Amazon Transcribe и как он работает?',
+                 'answer10' : 'Анализ сигнала это'
+
+
 }
 def text_eq(text1, text2):
     result = difflib.SequenceMatcher(None,f'{text1}',f'{text2}').ratio()
@@ -34,7 +42,7 @@ def echo_all(message):
             audio_name = uuid4()
             bot.send_message(message.chat.id, text='Audio is saving...')
             text_to_speech = gTTS(text=message.text, lang=message_lang, slow=False)
-            text_to_speech.save(f"{audio_name}.wav")
+            text_to_speech.save(f"./audios/{audio_name}.wav")
             audio_file = open(f'/home/alproger/Documents/GitHub/text-to-speech-telegram-bot/audios/{audio_name}.wav', 'rb')	
             bot.send_audio(message.chat.id, audio = audio_file)
         else:
